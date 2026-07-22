@@ -16,85 +16,95 @@ st.set_page_config(
 )
 
 # ============================================
-# Custom CSS - Dark Theme
+# Custom CSS - Light Theme (ปรับให้สว่างและสบายตา)
 # ============================================
 st.markdown("""
 <style>
+    /* พื้นหลังหลัก: สีขาวบริสุทธิ์ */
     .stApp {
-        background-color: #0e1117;
-        color: #e0e0e0;
+        background-color: #ffffff;
+        color: #2c3e50;
     }
     
+    /* Header: สีน้ำตาลอ่อน (ไม่ใช่แดงแสบตา) */
     .main-header {
-        background: linear-gradient(135deg, #c05660 0%, #a04550 100%);
+        background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
         padding: 2rem;
         border-radius: 16px;
-        color: white;
+        color: #2c3e50;
         text-align: center;
-        box-shadow: 0 4px 20px rgba(192, 86, 96, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         margin-bottom: 2rem;
+        border-bottom: 3px solid #d1d1d1;
     }
     .main-header h1 {
         margin: 0;
         font-size: 2.2rem;
         font-weight: 700;
+        color: #2c3e50;
     }
     .main-header p {
         margin: 0.5rem 0 0 0;
-        opacity: 0.95;
+        opacity: 0.8;
         font-size: 1.05rem;
+        color: #34495e;
     }
     
+    /* Input Cards: ขาวสะอาด ไม่ใช่เทาเข้ม */
     .input-card {
-        background: #1e293b;
+        background: #ffffff;
         padding: 1.2rem;
         border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         margin-bottom: 1rem;
-        border-left: 4px solid #c05660;
+        border-left: 4px solid #8d6e63;
     }
     
+    /* Result Safe: เขียวอ่อน ไม่แสบตา */
     .result-safe {
-        background: linear-gradient(135deg, #1e5638 0%, #164232 100%);
+        background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
         padding: 2rem;
         border-radius: 16px;
         text-align: center;
-        color: #86efac;
-        box-shadow: 0 4px 15px rgba(30, 86, 56, 0.4);
+        color: #1b5e20;
+        box-shadow: 0 4px 15px rgba(186, 216, 196, 0.4);
         margin-top: 1.5rem;
-        border: 1px solid #22c55e;
+        border: 1px solid #a5d6a7;
     }
     .result-safe h2 {
         margin: 0;
-        color: #86efac;
+        color: #1b5e20;
         font-size: 2rem;
     }
     
+    /* Result Danger: แดงอ่อน ไม่แสบตา */
     .result-danger {
-        background: linear-gradient(135deg, #7f1d1d 0%, #5c1515 100%);
+        background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
         padding: 2rem;
         border-radius: 16px;
         text-align: center;
-        color: #fca5a5;
-        box-shadow: 0 4px 15px rgba(127, 29, 29, 0.4);
+        color: #b71c1c;
+        box-shadow: 0 4px 15px rgba(255, 204, 204, 0.4);
         margin-top: 1.5rem;
-        border: 1px solid #ef4444;
+        border: 1px solid #ef9a9a;
     }
     .result-danger h2 {
         margin: 0;
-        color: #fca5a5;
+        color: #b71c1c;
         font-size: 2rem;
     }
     
+    /* Sidebar: สีเทาอ่อน */
     [data-testid=stSidebar] {
-        background-color: #1e293b !important;
+        background-color: #f8f9fa !important;
     }
     [data-testid=stSidebar] * {
-        color: #e2e8f0 !important;
+        color: #2c3e50 !important;
     }
     
+    /* ปุ่ม: สีน้ำตาลอ่อน */
     .stButton > button {
-        background: linear-gradient(135deg, #c05660 0%, #a04550 100%);
+        background: linear-gradient(135deg, #8d6e63 0%, #795548 100%);
         color: white;
         border: none;
         padding: 0.7rem 2rem;
@@ -102,29 +112,25 @@ st.markdown("""
         font-weight: 600;
         font-size: 1.05rem;
         width: 100%;
-        box-shadow: 0 2px 8px rgba(192, 86, 96, 0.3);
+        box-shadow: 0 2px 8px rgba(141, 110, 99, 0.3);
     }
     .stButton > button:hover {
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(192, 86, 96, 0.5);
+        box-shadow: 0 4px 12px rgba(141, 110, 99, 0.4);
     }
     
-    /* ปรับ input fields */
-    .stNumberInput > div > div > input {
-        background-color: #1e293b;
-        color: #e0e0e0;
-        border: 1px solid #334155;
-    }
-    
-    /* ปรับ selectbox */
+    /* ปรับ input fields ให้สว่าง */
+    .stNumberInput > div > div > input,
     .stSelectbox > div > div > select {
-        background-color: #1e293b;
-        color: #e0e0e0;
+        background-color: #ffffff;
+        color: #2c3e50;
+        border: 1px solid #e0e0e0;
     }
     
-    /* ปรับ metric cards */
-    [data-testid="stMetricValue"] {
-        color: #c05660 !important;
+    /* ปรับ text ให้ไม่แสบตา */
+    body {
+        font-family: 'Segoe UI', 'Roboto', sans-serif;
+        line-height: 1.6;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -184,7 +190,7 @@ with st.sidebar:
     """)
     
     st.markdown("---")
-    st.info("️ แอปนี้เป็นเพียงเครื่องมือช่วยประเมินเบื้องต้น")
+    st.info("⚠️ แอปนี้เป็นเพียงเครื่องมือช่วยประเมินเบื้องต้น")
 
 # ============================================
 # Input Section
@@ -210,7 +216,7 @@ with col3:
 col4, col5, col6 = st.columns(3)
 with col4:
     st.markdown("<div class='input-card'>", unsafe_allow_html=True)
-    resting_bp = st.number_input(" ความดันโลหิต", min_value=80, max_value=200, value=130)
+    resting_bp = st.number_input("🩸 ความดันโลหิต", min_value=80, max_value=200, value=130)
     st.markdown("</div>", unsafe_allow_html=True)
 with col5:
     st.markdown("<div class='input-card'>", unsafe_allow_html=True)
@@ -225,7 +231,7 @@ with col6:
 col7, col8, col9 = st.columns(3)
 with col7:
     st.markdown("<div class='input-card'>", unsafe_allow_html=True)
-    resting_ecg = st.selectbox(" ECG",
+    resting_ecg = st.selectbox("📈 ECG",
         options=[(0, "Normal"), (1, "Abnormal"), (2, "Hypertrophy")],
         format_func=lambda x: x[1])
     st.markdown("</div>", unsafe_allow_html=True)
@@ -289,26 +295,30 @@ if st.button("🔮 ประเมินความเสี่ยง"):
     fig.add_trace(go.Pie(
         labels=['ไม่เสี่ยง', 'เสี่ยง'],
         values=[probabilities[0]*100, probabilities[1]*100],
-        marker_colors=['#22c55e', '#ef4444'],
+        marker_colors=['#81c784', '#e57373'],
         hole=0.4,
-        textfont=dict(color='white')
+        textfont=dict(color='#2c3e50')
     ), row=1, col=1)
     
     fig.add_trace(go.Bar(
         x=['ไม่เสี่ยง', 'เสี่ยง'],
         y=[probabilities[0]*100, probabilities[1]*100],
-        marker_color=['#22c55e', '#ef4444']
+        marker_color=['#81c784', '#e57373'],
+        text=[f'{p*100:.1f}%' for p in probabilities],
+        textposition='outside',
+        textfont=dict(color='#2c3e50', size=14)
     ), row=1, col=2)
     
     fig.update_layout(
-        height=350, 
+        height=350,
         showlegend=False,
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
-        font=dict(color='#e0e0e0')
+        yaxis2=dict(range=[0, 110], gridcolor='#f0f0f0'),
+        font=dict(color='#2c3e50')
     )
     st.plotly_chart(fig, use_container_width=True)
 
 # Footer
 st.markdown("---")
-st.markdown("<div style='text-align: center; color: #64748b; padding: 1rem;'>🫀 Heart Disease Predictor © 2026</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center; color: #7f8c8d; padding: 1rem;'>🫀 Heart Disease Predictor © 2026</div>", unsafe_allow_html=True)
