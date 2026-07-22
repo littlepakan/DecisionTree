@@ -9,7 +9,7 @@ from plotly.subplots import make_subplots
 # Page Configuration
 # ============================================
 st.set_page_config(
-    page_title="❤️ Heart Disease Predictor",
+    page_title="Heart Disease Predictor",
     page_icon="❤️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -149,7 +149,7 @@ except FileNotFoundError:
 # ============================================
 st.markdown("""
 <div class="main-header">
-    <h1>🫀 Heart Disease Predictor</h1>
+    <h1>❤️ Heart Disease Predictor</h1>
     <p>ระบบประเมินความเสี่ยงโรคหัวใจด้วย Decision Tree AI</p>
 </div>
 """, unsafe_allow_html=True)
